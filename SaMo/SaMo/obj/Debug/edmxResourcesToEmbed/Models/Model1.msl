@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QLMONNEYModelStoreContainer" CdmEntityContainer="QLMONNEYEntities">
+    <EntitySetMapping Name="ChiPhis">
+      <EntityTypeMapping TypeName="QLMONNEYModel.ChiPhi">
+        <MappingFragment StoreEntitySet="ChiPhi">
+          <ScalarProperty Name="idChiPhi" ColumnName="idChiPhi" />
+          <ScalarProperty Name="tenChiPhi" ColumnName="tenChiPhi" />
+          <ScalarProperty Name="moTa" ColumnName="moTa" />
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+          <ScalarProperty Name="ngayTao" ColumnName="ngayTao" />
+          <ScalarProperty Name="ngayUpdate" ColumnName="ngayUpdate" />
+          <ScalarProperty Name="hinh" ColumnName="hinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dKChiPhis">
+      <EntityTypeMapping TypeName="QLMONNEYModel.dKChiPhi">
+        <MappingFragment StoreEntitySet="dKChiPhi">
+          <ScalarProperty Name="idDKChiPhi" ColumnName="idDKChiPhi" />
+          <ScalarProperty Name="idKhachHang" ColumnName="idKhachHang" />
+          <ScalarProperty Name="idChiPhi" ColumnName="idChiPhi" />
+          <ScalarProperty Name="tien" ColumnName="tien" />
+          <ScalarProperty Name="moTa" ColumnName="moTa" />
+          <ScalarProperty Name="ngayTao" ColumnName="ngayTao" />
+          <ScalarProperty Name="ngayUpdate" ColumnName="ngayUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dKThuNhaps">
+      <EntityTypeMapping TypeName="QLMONNEYModel.dKThuNhap">
+        <MappingFragment StoreEntitySet="dKThuNhap">
+          <ScalarProperty Name="idDKThuNhap" ColumnName="idDKThuNhap" />
+          <ScalarProperty Name="idKhachHang" ColumnName="idKhachHang" />
+          <ScalarProperty Name="idThuNhap" ColumnName="idThuNhap" />
+          <ScalarProperty Name="tien" ColumnName="tien" />
+          <ScalarProperty Name="moTa" ColumnName="moTa" />
+          <ScalarProperty Name="ngayTao" ColumnName="ngayTao" />
+          <ScalarProperty Name="ngayUpdate" ColumnName="ngayUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="QLMONNEYModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHang">
+          <ScalarProperty Name="idKhachHang" ColumnName="idKhachHang" />
+          <ScalarProperty Name="taiKhoan" ColumnName="taiKhoan" />
+          <ScalarProperty Name="matKhau" ColumnName="matKhau" />
+          <ScalarProperty Name="hoTen" ColumnName="hoTen" />
+          <ScalarProperty Name="soDuTK" ColumnName="soDuTK" />
+          <ScalarProperty Name="gioiHan" ColumnName="gioiHan" />
+          <ScalarProperty Name="NgayTao" ColumnName="NgayTao" />
+          <ScalarProperty Name="ngayUpdate" ColumnName="ngayUpdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThuNhaps">
+      <EntityTypeMapping TypeName="QLMONNEYModel.ThuNhap">
+        <MappingFragment StoreEntitySet="ThuNhap">
+          <ScalarProperty Name="idThuNhap" ColumnName="idThuNhap" />
+          <ScalarProperty Name="tenThuNhap" ColumnName="tenThuNhap" />
+          <ScalarProperty Name="moTa" ColumnName="moTa" />
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+          <ScalarProperty Name="ngayTao" ColumnName="ngayTao" />
+          <ScalarProperty Name="ngayUpdate" ColumnName="ngayUpdate" />
+          <ScalarProperty Name="hinh" ColumnName="hinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLMONNEYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ChiPhi">
+    <Key>
+      <PropertyRef Name="idChiPhi" />
+    </Key>
+    <Property Name="idChiPhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenChiPhi" Type="varchar(max)" Nullable="false" />
+    <Property Name="moTa" Type="varchar(max)" Nullable="false" />
+    <Property Name="trangThai" Type="bit" />
+    <Property Name="ngayTao" Type="datetime" />
+    <Property Name="ngayUpdate" Type="datetime" />
+    <Property Name="hinh" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="dKChiPhi">
+    <Key>
+      <PropertyRef Name="idDKChiPhi" />
+    </Key>
+    <Property Name="idDKChiPhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idKhachHang" Type="int" Nullable="false" />
+    <Property Name="idChiPhi" Type="int" Nullable="false" />
+    <Property Name="tien" Type="money" Nullable="false" />
+    <Property Name="moTa" Type="varchar(max)" Nullable="false" />
+    <Property Name="ngayTao" Type="datetime" />
+    <Property Name="ngayUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="dKThuNhap">
+    <Key>
+      <PropertyRef Name="idDKThuNhap" />
+    </Key>
+    <Property Name="idDKThuNhap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idKhachHang" Type="int" Nullable="false" />
+    <Property Name="idThuNhap" Type="int" Nullable="false" />
+    <Property Name="tien" Type="money" Nullable="false" />
+    <Property Name="moTa" Type="varchar(max)" Nullable="false" />
+    <Property Name="ngayTao" Type="datetime" />
+    <Property Name="ngayUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="idKhachHang" />
+    </Key>
+    <Property Name="idKhachHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="taiKhoan" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="matKhau" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="hoTen" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="soDuTK" Type="money" />
+    <Property Name="gioiHan" Type="money" />
+    <Property Name="NgayTao" Type="datetime" />
+    <Property Name="ngayUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ThuNhap">
+    <Key>
+      <PropertyRef Name="idThuNhap" />
+    </Key>
+    <Property Name="idThuNhap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="tenThuNhap" Type="varchar(max)" Nullable="false" />
+    <Property Name="moTa" Type="varchar(max)" Nullable="false" />
+    <Property Name="trangThai" Type="bit" />
+    <Property Name="ngayTao" Type="datetime" />
+    <Property Name="ngayUpdate" Type="datetime" />
+    <Property Name="hinh" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="fk_ChiPhi_dkThuNhap">
+    <End Role="ChiPhi" Type="Self.ChiPhi" Multiplicity="1" />
+    <End Role="dKChiPhi" Type="Self.dKChiPhi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChiPhi">
+        <PropertyRef Name="idChiPhi" />
+      </Principal>
+      <Dependent Role="dKChiPhi">
+        <PropertyRef Name="idChiPhi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_KhachHang_dkChiPhi">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="dKChiPhi" Type="Self.dKChiPhi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="idKhachHang" />
+      </Principal>
+      <Dependent Role="dKChiPhi">
+        <PropertyRef Name="idKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_KhachHang_dkThuNhap">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="dKThuNhap" Type="Self.dKThuNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="idKhachHang" />
+      </Principal>
+      <Dependent Role="dKThuNhap">
+        <PropertyRef Name="idKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ThuNhap_dkThuNhap">
+    <End Role="ThuNhap" Type="Self.ThuNhap" Multiplicity="1" />
+    <End Role="dKThuNhap" Type="Self.dKThuNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThuNhap">
+        <PropertyRef Name="idThuNhap" />
+      </Principal>
+      <Dependent Role="dKThuNhap">
+        <PropertyRef Name="idThuNhap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLMONNEYModelStoreContainer">
+    <EntitySet Name="ChiPhi" EntityType="Self.ChiPhi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dKChiPhi" EntityType="Self.dKChiPhi" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="dKThuNhap" EntityType="Self.dKThuNhap" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ThuNhap" EntityType="Self.ThuNhap" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="fk_ChiPhi_dkThuNhap" Association="Self.fk_ChiPhi_dkThuNhap">
+      <End Role="ChiPhi" EntitySet="ChiPhi" />
+      <End Role="dKChiPhi" EntitySet="dKChiPhi" />
+    </AssociationSet>
+    <AssociationSet Name="fk_KhachHang_dkChiPhi" Association="Self.fk_KhachHang_dkChiPhi">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="dKChiPhi" EntitySet="dKChiPhi" />
+    </AssociationSet>
+    <AssociationSet Name="fk_KhachHang_dkThuNhap" Association="Self.fk_KhachHang_dkThuNhap">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="dKThuNhap" EntitySet="dKThuNhap" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ThuNhap_dkThuNhap" Association="Self.fk_ThuNhap_dkThuNhap">
+      <End Role="ThuNhap" EntitySet="ThuNhap" />
+      <End Role="dKThuNhap" EntitySet="dKThuNhap" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

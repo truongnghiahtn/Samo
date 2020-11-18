@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="13ef4982c46d4ff382336150e4c3ebca" Name="Diagram1">
+        <EntityTypeShape EntityType="QLMONNEYModel.ChiPhi" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMONNEYModel.dKChiPhi" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMONNEYModel.dKThuNhap" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMONNEYModel.KhachHang" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLMONNEYModel.ThuNhap" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="QLMONNEYModel.fk_ChiPhi_dkThuNhap" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMONNEYModel.fk_KhachHang_dkChiPhi" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMONNEYModel.fk_KhachHang_dkThuNhap" ManuallyRouted="false" />
+        <AssociationConnector Association="QLMONNEYModel.fk_ThuNhap_dkThuNhap" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QLMONNEYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ChiPhi">
+    <Key>
+      <PropertyRef Name="idChiPhi" />
+    </Key>
+    <Property Name="idChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenChiPhi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="trangThai" Type="Boolean" />
+    <Property Name="ngayTao" Type="DateTime" Precision="3" />
+    <Property Name="ngayUpdate" Type="DateTime" Precision="3" />
+    <Property Name="hinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="dKChiPhis" Relationship="Self.fk_ChiPhi_dkThuNhap" FromRole="ChiPhi" ToRole="dKChiPhi" />
+  </EntityType>
+  <EntityType Name="dKChiPhi">
+    <Key>
+      <PropertyRef Name="idDKChiPhi" />
+    </Key>
+    <Property Name="idDKChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idKhachHang" Type="Int32" Nullable="false" />
+    <Property Name="idChiPhi" Type="Int32" Nullable="false" />
+    <Property Name="tien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ngayTao" Type="DateTime" Precision="3" />
+    <Property Name="ngayUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="ChiPhi" Relationship="Self.fk_ChiPhi_dkThuNhap" FromRole="dKChiPhi" ToRole="ChiPhi" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.fk_KhachHang_dkChiPhi" FromRole="dKChiPhi" ToRole="KhachHang" />
+  </EntityType>
+  <EntityType Name="dKThuNhap">
+    <Key>
+      <PropertyRef Name="idDKThuNhap" />
+    </Key>
+    <Property Name="idDKThuNhap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idKhachHang" Type="Int32" Nullable="false" />
+    <Property Name="idThuNhap" Type="Int32" Nullable="false" />
+    <Property Name="tien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ngayTao" Type="DateTime" Precision="3" />
+    <Property Name="ngayUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="KhachHang" Relationship="Self.fk_KhachHang_dkThuNhap" FromRole="dKThuNhap" ToRole="KhachHang" />
+    <NavigationProperty Name="ThuNhap" Relationship="Self.fk_ThuNhap_dkThuNhap" FromRole="dKThuNhap" ToRole="ThuNhap" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="idKhachHang" />
+    </Key>
+    <Property Name="idKhachHang" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="taiKhoan" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="matKhau" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="hoTen" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="soDuTK" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="gioiHan" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="NgayTao" Type="DateTime" Precision="3" />
+    <Property Name="ngayUpdate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="dKChiPhis" Relationship="Self.fk_KhachHang_dkChiPhi" FromRole="KhachHang" ToRole="dKChiPhi" />
+    <NavigationProperty Name="dKThuNhaps" Relationship="Self.fk_KhachHang_dkThuNhap" FromRole="KhachHang" ToRole="dKThuNhap" />
+  </EntityType>
+  <EntityType Name="ThuNhap">
+    <Key>
+      <PropertyRef Name="idThuNhap" />
+    </Key>
+    <Property Name="idThuNhap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenThuNhap" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="trangThai" Type="Boolean" />
+    <Property Name="ngayTao" Type="DateTime" Precision="3" />
+    <Property Name="ngayUpdate" Type="DateTime" Precision="3" />
+    <Property Name="hinh" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="dKThuNhaps" Relationship="Self.fk_ThuNhap_dkThuNhap" FromRole="ThuNhap" ToRole="dKThuNhap" />
+  </EntityType>
+  <Association Name="fk_ChiPhi_dkThuNhap">
+    <End Role="ChiPhi" Type="Self.ChiPhi" Multiplicity="1" />
+    <End Role="dKChiPhi" Type="Self.dKChiPhi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChiPhi">
+        <PropertyRef Name="idChiPhi" />
+      </Principal>
+      <Dependent Role="dKChiPhi">
+        <PropertyRef Name="idChiPhi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_KhachHang_dkChiPhi">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="dKChiPhi" Type="Self.dKChiPhi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="idKhachHang" />
+      </Principal>
+      <Dependent Role="dKChiPhi">
+        <PropertyRef Name="idKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_KhachHang_dkThuNhap">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="1" />
+    <End Role="dKThuNhap" Type="Self.dKThuNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="idKhachHang" />
+      </Principal>
+      <Dependent Role="dKThuNhap">
+        <PropertyRef Name="idKhachHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="fk_ThuNhap_dkThuNhap">
+    <End Role="ThuNhap" Type="Self.ThuNhap" Multiplicity="1" />
+    <End Role="dKThuNhap" Type="Self.dKThuNhap" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ThuNhap">
+        <PropertyRef Name="idThuNhap" />
+      </Principal>
+      <Dependent Role="dKThuNhap">
+        <PropertyRef Name="idThuNhap" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QLMONNEYEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ChiPhis" EntityType="Self.ChiPhi" />
+    <EntitySet Name="dKChiPhis" EntityType="Self.dKChiPhi" />
+    <EntitySet Name="dKThuNhaps" EntityType="Self.dKThuNhap" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
+    <EntitySet Name="ThuNhaps" EntityType="Self.ThuNhap" />
+    <AssociationSet Name="fk_ChiPhi_dkThuNhap" Association="Self.fk_ChiPhi_dkThuNhap">
+      <End Role="ChiPhi" EntitySet="ChiPhis" />
+      <End Role="dKChiPhi" EntitySet="dKChiPhis" />
+    </AssociationSet>
+    <AssociationSet Name="fk_KhachHang_dkChiPhi" Association="Self.fk_KhachHang_dkChiPhi">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="dKChiPhi" EntitySet="dKChiPhis" />
+    </AssociationSet>
+    <AssociationSet Name="fk_KhachHang_dkThuNhap" Association="Self.fk_KhachHang_dkThuNhap">
+      <End Role="KhachHang" EntitySet="KhachHangs" />
+      <End Role="dKThuNhap" EntitySet="dKThuNhaps" />
+    </AssociationSet>
+    <AssociationSet Name="fk_ThuNhap_dkThuNhap" Association="Self.fk_ThuNhap_dkThuNhap">
+      <End Role="ThuNhap" EntitySet="ThuNhaps" />
+      <End Role="dKThuNhap" EntitySet="dKThuNhaps" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
