@@ -14,7 +14,7 @@ namespace SaMo.Controllers
 {
     public class ApiKhachHangsController : ApiController
     {
-        private QLMONNEYEntities db = new QLMONNEYEntities();
+        private QLMONNEYEntities1 db = new QLMONNEYEntities1();
 
 
 
@@ -62,6 +62,17 @@ namespace SaMo.Controllers
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
+            }
+
+            var check = from kh in db.KhachHangs
+                       where kh.taiKhoan == khachHang.taiKhoan 
+                       select new
+                       {
+                           id = kh.idKhachHang,
+                       };
+            if (check.Count() > 0)
+            {
+                return BadRequest();
             }
 
             db.KhachHangs.Add(khachHang);

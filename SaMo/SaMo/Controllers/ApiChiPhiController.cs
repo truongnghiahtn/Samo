@@ -10,12 +10,12 @@ namespace SaMo.Controllers
 {
     public class ApiChiPhiController : ApiController
     {
-        private QLMONNEYEntities db = new QLMONNEYEntities();
+        private QLMONNEYEntities1 db = new QLMONNEYEntities1();
 
         // GET: api/ApiThuNhap
         public IQueryable<Object> GetThuNhaps()
         {
-            var ChiPhiAll = db.ThuNhaps.Select(x => new { idThuNhap = x.idThuNhap, ten = x.tenThuNhap, moTa = x.moTa, icon = x.hinh });
+            var ChiPhiAll = db.ChiPhis.Select(x => new { idChiPhi = x.idChiPhi, ten = x.tenChiPhi, moTa = x.moTa, icon = x.hinh });
             return ChiPhiAll;
         }
     }

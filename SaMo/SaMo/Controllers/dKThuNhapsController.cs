@@ -14,7 +14,7 @@ namespace SaMo.Controllers
 {
     public class dKThuNhapsController : ApiController
     {
-        private QLMONNEYEntities db = new QLMONNEYEntities();
+        private QLMONNEYEntities1 db = new QLMONNEYEntities1();
 
 
         // GET: api/dKThuNhaps/5

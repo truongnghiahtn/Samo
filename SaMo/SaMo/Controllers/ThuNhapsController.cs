@@ -12,7 +12,7 @@ namespace SaMo.Controllers
 {
     public class ThuNhapsController : Controller
     {
-        private QLMONNEYEntities db = new QLMONNEYEntities();
+        private QLMONNEYEntities1 db = new QLMONNEYEntities1();
 
         // GET: ThuNhaps
         public ActionResult Index()

@@ -13,10 +13,10 @@ namespace SaMo.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLMONNEYEntities : DbContext
+    public partial class QLMONNEYEntities1 : DbContext
     {
-        public QLMONNEYEntities()
-            : base("name=QLMONNEYEntities")
+        public QLMONNEYEntities1()
+            : base("name=QLMONNEYEntities1")
         {
         }
     

@@ -12,7 +12,7 @@ namespace SaMo.Controllers
 {
     public class KhachHangsController : Controller
     {
-        private QLMONNEYEntities db = new QLMONNEYEntities();
+        private QLMONNEYEntities1 db = new QLMONNEYEntities1();
 
         // GET: KhachHangs
         public ActionResult Index()

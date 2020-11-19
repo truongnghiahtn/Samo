@@ -10,7 +10,7 @@ namespace SaMo.Controllers
 {
     public class ApiThuNhapController : ApiController
     {
-        private QLMONNEYEntities db = new QLMONNEYEntities();
+        private QLMONNEYEntities1 db = new QLMONNEYEntities1();
 
         // GET: api/ApiThuNhap
         public IQueryable<Object> GetThuNhaps()

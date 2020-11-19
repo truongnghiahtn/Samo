@@ -11,10 +11,11 @@ namespace SaMo.Controllers
 {
     public class ApiDkController : ApiController
     {
-        private QLMONNEYEntities db = new QLMONNEYEntities();
+        private QLMONNEYEntities1 db = new QLMONNEYEntities1();
         //[ResponseType(typeof(dKChiPhi))]
         public IHttpActionResult GetdK(int id)
         {
+            
 
             var dkThuNhap = from dktn in db.dKThuNhaps
                             join tn in db.ThuNhaps on dktn.idThuNhap equals tn.idThuNhap
@@ -45,12 +46,27 @@ namespace SaMo.Controllers
             List<DetailDk> mylist = new List<DetailDk>();
             mylist.AddRange(dkThuNhap);
             mylist.AddRange(dkChiPhi);
-            if (mylist == null)
+            if (mylist.Count() == 0)
             {
                 return NotFound();
             }
-            var sortdate = mylist.OrderByDescending(x => x.NgayTao).Reverse();
-            return Ok(mylist);
+            var test = mylist.Select(x => x.NgayTao.Date).Distinct();
+
+            var dk = test.Select(x => new DangKy() { NgayTao = x.Date,
+                NoiDung=mylist.Where(y=>y.NgayTao >x.Date &&y.NgayTao<=x.Date.AddDays(1)).Select(n=>new DetailDk()
+                {
+                    id = n.id,
+                    ten = n.ten,
+                    hinhAnh = n.hinhAnh,
+                    tien = n.tien,
+                    loai = n.loai,
+                    NgayTao = n.NgayTao,
+                    NgayTaoString = n.NgayTaoString
+                }).ToList()
+            });
+
+            var sortdate = dk.OrderByDescending(x => x.NgayTao).Reverse();
+            return Ok(sortdate);
         }
     }
 }

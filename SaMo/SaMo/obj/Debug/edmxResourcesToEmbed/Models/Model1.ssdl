@@ -5,8 +5,8 @@
       <PropertyRef Name="idChiPhi" />
     </Key>
     <Property Name="idChiPhi" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="tenChiPhi" Type="varchar(max)" Nullable="false" />
-    <Property Name="moTa" Type="varchar(max)" Nullable="false" />
+    <Property Name="tenChiPhi" Type="nvarchar(max)" />
+    <Property Name="moTa" Type="nvarchar(max)" />
     <Property Name="trangThai" Type="bit" />
     <Property Name="ngayTao" Type="datetime" />
     <Property Name="ngayUpdate" Type="datetime" />
@@ -20,7 +20,7 @@
     <Property Name="idKhachHang" Type="int" Nullable="false" />
     <Property Name="idChiPhi" Type="int" Nullable="false" />
     <Property Name="tien" Type="money" Nullable="false" />
-    <Property Name="moTa" Type="varchar(max)" Nullable="false" />
+    <Property Name="moTa" Type="nvarchar(max)" />
     <Property Name="ngayTao" Type="datetime" />
     <Property Name="ngayUpdate" Type="datetime" />
   </EntityType>
@@ -32,7 +32,7 @@
     <Property Name="idKhachHang" Type="int" Nullable="false" />
     <Property Name="idThuNhap" Type="int" Nullable="false" />
     <Property Name="tien" Type="money" Nullable="false" />
-    <Property Name="moTa" Type="varchar(max)" Nullable="false" />
+    <Property Name="moTa" Type="nvarchar(max)" />
     <Property Name="ngayTao" Type="datetime" />
     <Property Name="ngayUpdate" Type="datetime" />
   </EntityType>
@@ -54,8 +54,8 @@
       <PropertyRef Name="idThuNhap" />
     </Key>
     <Property Name="idThuNhap" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="tenThuNhap" Type="varchar(max)" Nullable="false" />
-    <Property Name="moTa" Type="varchar(max)" Nullable="false" />
+    <Property Name="tenThuNhap" Type="nvarchar(max)" />
+    <Property Name="moTa" Type="nvarchar(max)" />
     <Property Name="trangThai" Type="bit" />
     <Property Name="ngayTao" Type="datetime" />
     <Property Name="ngayUpdate" Type="datetime" />

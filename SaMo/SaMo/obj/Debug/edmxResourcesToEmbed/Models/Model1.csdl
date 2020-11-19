@@ -5,8 +5,8 @@
       <PropertyRef Name="idChiPhi" />
     </Key>
     <Property Name="idChiPhi" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tenChiPhi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tenChiPhi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="trangThai" Type="Boolean" />
     <Property Name="ngayTao" Type="DateTime" Precision="3" />
     <Property Name="ngayUpdate" Type="DateTime" Precision="3" />
@@ -21,7 +21,7 @@
     <Property Name="idKhachHang" Type="Int32" Nullable="false" />
     <Property Name="idChiPhi" Type="Int32" Nullable="false" />
     <Property Name="tien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ngayTao" Type="DateTime" Precision="3" />
     <Property Name="ngayUpdate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="ChiPhi" Relationship="Self.fk_ChiPhi_dkThuNhap" FromRole="dKChiPhi" ToRole="ChiPhi" />
@@ -35,7 +35,7 @@
     <Property Name="idKhachHang" Type="Int32" Nullable="false" />
     <Property Name="idThuNhap" Type="Int32" Nullable="false" />
     <Property Name="tien" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
-    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ngayTao" Type="DateTime" Precision="3" />
     <Property Name="ngayUpdate" Type="DateTime" Precision="3" />
     <NavigationProperty Name="KhachHang" Relationship="Self.fk_KhachHang_dkThuNhap" FromRole="dKThuNhap" ToRole="KhachHang" />
@@ -61,8 +61,8 @@
       <PropertyRef Name="idThuNhap" />
     </Key>
     <Property Name="idThuNhap" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tenThuNhap" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tenThuNhap" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="moTa" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="trangThai" Type="Boolean" />
     <Property Name="ngayTao" Type="DateTime" Precision="3" />
     <Property Name="ngayUpdate" Type="DateTime" Precision="3" />
@@ -117,7 +117,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QLMONNEYEntities" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QLMONNEYEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="ChiPhis" EntityType="Self.ChiPhi" />
     <EntitySet Name="dKChiPhis" EntityType="Self.dKChiPhi" />
     <EntitySet Name="dKThuNhaps" EntityType="Self.dKThuNhap" />
